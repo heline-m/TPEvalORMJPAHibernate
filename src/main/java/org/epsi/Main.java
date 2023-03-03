@@ -3,10 +3,13 @@ package org.epsi;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
+import jakarta.persistence.TypedQuery;
 import org.epsi.models.*;
 
+import java.sql.Statement;
 import java.util.Date;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 public class Main {
@@ -50,14 +53,17 @@ public class Main {
         em.persist(fish3);
 
 
-        Cat cat1 = new Cat(new Date(2023, 3, 2), "bleu", petStore, "GGHYTB21");
+        Cat cat1 = new Cat(new Date(2023, 3, 2), "blanc", petStore, "GGHYTB21");
         em.persist(cat1);
-        Cat cat2 = new Cat(new Date(2022, 6, 20), "bleu", petStore2, "DGRSGD23");
+        Cat cat2 = new Cat(new Date(2022, 6, 20), "roux", petStore2, "DGRSGD23");
         em.persist(cat2);
-        Cat cat3 = new Cat(new Date(2021, 9, 3), "bleu", petStore3, "FGFSSGH67");
+        Cat cat3 = new Cat(new Date(2021, 9, 3), "tricolor", petStore3, "FGFSSGH67");
         em.persist(cat3);
 
         em.getTransaction().commit();
+
+        TypedQuery<Animal> findAllQUery = em.createQuery("from animal where petStores='2'", Animal.class);
+        System.out.println(findAllQUery.getResultList());
 
         em.close();
         emf.close();
