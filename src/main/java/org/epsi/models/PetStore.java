@@ -31,6 +31,10 @@ public class PetStore {
     @JoinColumn(name = "id_address")
     private Address address;
 
+    public Integer getId() {
+        return id;
+    }
+
     public PetStore(String name, String managerName, Set<Product> products, Address address) {
         this.name = name;
         this.managerName = managerName;

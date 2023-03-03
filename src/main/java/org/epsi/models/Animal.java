@@ -8,7 +8,7 @@ import java.util.Date;
 @Inheritance(strategy = InheritanceType.JOINED)
 public abstract class Animal {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @Column
     private Date birth;
@@ -32,4 +32,13 @@ public abstract class Animal {
         this.petStores = petStores;
     }
 
+    @Override
+    public String toString() {
+        return "Animal{" +
+                "id=" + id +
+                ", birth=" + birth +
+                ", couleur='" + couleur + '\'' +
+                ", petStores=" + petStores +
+                '}';
+    }
 }
