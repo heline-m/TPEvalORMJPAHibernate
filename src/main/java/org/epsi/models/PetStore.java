@@ -30,4 +30,11 @@ public class PetStore {
     @OneToOne
     @JoinColumn(name = "id_address")
     private Address address;
+
+    public PetStore(String name, String managerName, Set<Product> products, Address address) {
+        this.name = name;
+        this.managerName = managerName;
+        this.products = products;
+        this.address = address;
+    }
 }

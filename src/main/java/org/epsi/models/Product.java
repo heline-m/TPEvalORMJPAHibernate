@@ -16,6 +16,7 @@ public class Product {
     private String label;
     @Column
     private ProdType type;
+
     @Column
     private Double price;
     @ManyToMany(mappedBy = "products")
@@ -27,5 +28,12 @@ public class Product {
 
     public void setPetStores(Collection<PetStore> petStores) {
         this.petStores = petStores;
+    }
+
+    public Product(String code, String label, ProdType type, Double price) {
+        this.code = code;
+        this.label = label;
+        this.type = type;
+        this.price = price;
     }
 }

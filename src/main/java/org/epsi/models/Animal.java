@@ -6,9 +6,9 @@ import java.util.Date;
 
 @Entity(name = "animal")
 @Inheritance(strategy = InheritanceType.JOINED)
-public class Animal {
+public abstract class Animal {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Integer id;
     @Column
     private Date birth;
@@ -18,6 +18,12 @@ public class Animal {
     @ManyToOne(optional = false)
     private PetStore petStores;
 
+    public Animal(Date birth, String couleur, PetStore petStores) {
+        this.birth = birth;
+        this.couleur = couleur;
+        this.petStores = petStores;
+    }
+
     public PetStore getPetStores() {
         return petStores;
     }
@@ -25,4 +31,5 @@ public class Animal {
     public void setPetStores(PetStore petStores) {
         this.petStores = petStores;
     }
+
 }

@@ -15,4 +15,11 @@ public class Address {
     private String zipCode;
     @Column
     private String city;
+
+    public Address(String number, String street, String zipCode, String city) {
+        this.number = number;
+        this.street = street;
+        this.zipCode = zipCode;
+        this.city = city;
+    }
 }

@@ -8,7 +8,6 @@
         <class>org.epsi.models.Address</class>
         <class>org.epsi.models.Animal</class>
         <class>org.epsi.models.PetStore</class>
-        <class>org.epsi.models.ProdType</class>
         <class>org.epsi.models.Product</class>
         <class>org.epsi.models.Cat</class>
         <class>org.epsi.models.Fish</class>
