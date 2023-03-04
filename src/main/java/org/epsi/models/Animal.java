@@ -16,20 +16,20 @@ public abstract class Animal {
     private String couleur;
 
     @ManyToOne(optional = false)
-    private PetStore petStores;
+    private PetStore petStore;
 
     public Animal(Date birth, String couleur, PetStore petStores) {
         this.birth = birth;
         this.couleur = couleur;
-        this.petStores = petStores;
+        this.petStore = petStores;
     }
 
-    public PetStore getPetStores() {
-        return petStores;
+    public PetStore getPetStore() {
+        return petStore;
     }
 
-    public void setPetStores(PetStore petStores) {
-        this.petStores = petStores;
+    public void setPetStore(PetStore petStores) {
+        this.petStore = petStores;
     }
 
     @Override
@@ -38,7 +38,19 @@ public abstract class Animal {
                 "id=" + id +
                 ", birth=" + birth +
                 ", couleur='" + couleur + '\'' +
-                ", petStores=" + petStores +
+                ", petStores=" + petStore +
                 '}';
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public Date getBirth() {
+        return birth;
+    }
+
+    public String getCouleur() {
+        return couleur;
     }
 }

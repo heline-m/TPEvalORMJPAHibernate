@@ -14,4 +14,14 @@ public class Cat extends Animal{
         super(birth, couleur, petStores);
         this.chipid = chipid;
     }
+
+    @Override
+    public String toString() {
+        return "Cat{" +
+                "id=" + getId()+
+                "birth=" + getBirth() +
+                "petStore=" + getCouleur() +
+                "chipid='" + chipid + '\'' +
+                '}';
+    }
 }

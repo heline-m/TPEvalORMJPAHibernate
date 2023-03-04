@@ -1,9 +1,6 @@
 package org.epsi;
 
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.EntityManagerFactory;
-import jakarta.persistence.Persistence;
-import jakarta.persistence.TypedQuery;
+import jakarta.persistence.*;
 import org.epsi.models.*;
 
 import java.sql.Statement;
@@ -15,7 +12,7 @@ import java.util.Set;
 public class Main {
     public static void main(String[] args) {
         System.out.println("---------------------- Start -------------------");
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("test");
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("petStore");
         EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
 
@@ -62,7 +59,7 @@ public class Main {
 
         em.getTransaction().commit();
 
-        TypedQuery<Animal> findAllQUery = em.createQuery("from animal where petStores='2'", Animal.class);
+        Query findAllQUery = em.createQuery("select a from animal a where a.petStore.id=2 ");
         System.out.println(findAllQUery.getResultList());
 
         em.close();

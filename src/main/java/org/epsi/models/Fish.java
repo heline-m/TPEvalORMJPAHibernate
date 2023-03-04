@@ -16,4 +16,15 @@ public class Fish extends Animal{
         super(birth, couleur, petStores);
         this.livingEnv = livingEnv;
     }
+
+    @Override
+    public String toString() {
+        return "Fish{" +
+                "id=" + getId()+
+                "birth=" + getBirth() +
+                "petStore=" + getCouleur() +
+                "livingEnv=" + livingEnv +
+                '}';
+    }
+
 }
